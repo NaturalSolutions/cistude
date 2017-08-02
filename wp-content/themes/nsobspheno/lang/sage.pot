@@ -77,7 +77,7 @@ msgid "By"
 msgstr ""
 
 #. Theme Name of the plugin/theme
-msgid "Sage Starter Theme"
+msgid "Sage Starter Theme for cistude"
 msgstr ""
 
 #. Theme URI of the plugin/theme
@@ -91,7 +91,7 @@ msgid ""
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Roots"
+msgid "Roots and Natural-Solutions"
 msgstr ""
 
 #. Author URI of the plugin/theme

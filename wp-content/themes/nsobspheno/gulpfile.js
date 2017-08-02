@@ -1,3 +1,4 @@
+console.log('Node version: ' + process.version);
 // ## Globals
 var argv         = require('minimist')(process.argv.slice(2));
 var autoprefixer = require('gulp-autoprefixer');
