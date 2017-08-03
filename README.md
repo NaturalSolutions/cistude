@@ -1,8 +1,13 @@
 # cistude
 Projet de sciences participatives
 
-# Installation  
+### Documentation  
+
+## Installation  
 https://roots.io/sage/docs/theme-development-and-building/  
 
-# Usage  
+## Templating  
+https://roots.io/sage/docs/theme-templates/  
+
+### Usage  
 In path "www/wp-content/themes/nsobspheno" do : "gulp watch"  

@@ -46,6 +46,8 @@ var config = manifest.config || {};
 // - `globs.bower` - Array of all the main Bower files.
 var globs = manifest.globs;
 
+globs.fonts = ['./bower_components/font-awesome/fonts/*'];
+
 // `project` - paths to first-party assets.
 // - `project.js` - Array of first-party JS assets.
 // - `project.css` - Array of first-party CSS assets.
