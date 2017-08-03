@@ -1,1 +1,11 @@
 @import "navbar";
+
+html, body{
+	height: 100%;
+}
+
+.fullHeight{
+	height::100%;
+}
+
+#tinymce { height: auto;}
