@@ -9,9 +9,23 @@ div.main-menu{
   }
 }
 
+
+a.btnToggleMenu{
+  background-color : $brand-primary;
+  width: 50px;
+  display: inline-block;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  left: -15px;
+  top: -25px;
+  color: #fff;
+}
+
 #sidebar{
   background-color : $brand-primary;
   padding: 0;
+  top: -25px;
   &.show{
 
   }
@@ -96,14 +110,16 @@ div.main-menu{
   -webkit-transition-timing-function: ease;
        -o-transition-timing-function: ease;
           transition-timing-function: ease;
-  -webkit-transition-duration: .2s;
-       -o-transition-duration: .2s;
-          transition-duration: .2s;
+  -webkit-transition-duration: .1s;
+       -o-transition-duration: .1s;
+          transition-duration: .1s;
 }
 
 #sidebar.collapsing {
-  opacity: 0.8;
+  opacity: 0;
   width: 0;
+  background: 0;
+  height: 0;
   -webkit-transition-timing-function: ease-in;
        -o-transition-timing-function: ease-in;
           transition-timing-function: ease-in;

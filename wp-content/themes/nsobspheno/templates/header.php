@@ -1,7 +1,7 @@
 <header class="banner">
   <div class="container-fluid">
     <center>
-      <span>Les sentienlles du climat</span> <img src="<?= esc_url(home_url('/')); ?>wp-content/themes/nsobspheno/assets/images/logo-sentinelle.png" alt="logo"> <span>Observatoire phénologique</span>
+      <h1>Les sentienlles du climat</span> <img src="<?= esc_url(home_url('/')); ?>wp-content/themes/nsobspheno/assets/images/logo-sentinelle.png" alt="logo"> <span>Observatoire phénologique</h1>
     </center>
 
 

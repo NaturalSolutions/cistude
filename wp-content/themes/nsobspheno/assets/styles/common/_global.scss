@@ -1,11 +1,60 @@
 @import "navbar";
 
-html, body{
-	height: 100%;
-}
 
+// Common
+/* html, body{
+	height: 100%;
+} */
+
+
+// Divers
 .fullHeight{
 	height::100%;
 }
 
+
+// to fix bug with text editor in Back-office
 #tinymce { height: auto;}
+
+
+body > div.wrap{
+	padding-top: 100px;
+}
+
+div.page-header h2{
+
+	font-size : 1.5em;
+	background-color : $brand-second;
+	color: #fff;
+	font-weight: normal;
+	text-align: center;
+	padding: 10px 0;
+
+	&.on{
+		padding-bottom: 50px;
+	}
+
+}
+
+// Font page
+div.oneSpecie{
+	position: relative;
+	text-align: center;
+	margin-bottom: 55px;
+
+
+	a{
+		width: 100%;
+	}
+	span{
+		display: inline-block;
+		width: 84%;
+		position: absolute;
+		bottom: 0;
+		left: 8%;
+		background-color: rgba(0,0,0,0.4);
+		color: #fff;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+}
