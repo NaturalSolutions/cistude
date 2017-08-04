@@ -11,6 +11,13 @@
 .fullHeight{
 	height::100%;
 }
+.flexWrapper{
+	display:flex;
+}
+
+div.wrap > div.content{
+	display: flex;
+}
 
 
 // to fix bug with text editor in Back-office
@@ -21,40 +28,90 @@ body > div.wrap{
 	padding-top: 100px;
 }
 
-div.page-header h2{
+main#main-container{
+	flex: 1;
+	position:relative;
+	/* padding-top: 19px; */
+}
 
-	font-size : 1.5em;
-	background-color : $brand-second;
-	color: #fff;
-	font-weight: normal;
-	text-align: center;
-	padding: 10px 0;
+div.page-header{
+	margin-top: 19px;
+	h2{
 
-	&.on{
-		padding-bottom: 50px;
+		font-size : 1.5em;
+		background-color : $brand-second;
+		color: #fff;
+		font-weight: normal;
+		text-align: center;
+		padding: 10px 0;
+
+		&.on{
+			padding-bottom: 50px;
+		}
 	}
+}
 
+div.contentWrapper{
+	padding: 0 1%;
 }
 
 // Font page
 div.oneSpecie{
 	position: relative;
 	text-align: center;
-	margin-bottom: 55px;
-
-
-	a{
-		width: 100%;
+	margin-bottom: 13px;
+	display:inline-block;
+	border: 1px solid $brand-second;
+	span.labelShowOnHover{
+		display: none;
 	}
-	span{
+
+	&:hover{
+		span.labelShowOnHover{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 267px;
+			vertical-align: middle;
+			line-height: 267px;
+			background-color: rgba(255,255,255,0.5);
+			text-decoration: underline;
+			display: block;
+
+		}
+	}
+
+	div.bot{
+		text-align: left;
 		display: inline-block;
-		width: 84%;
+		width: 100%;
 		position: absolute;
 		bottom: 0;
-		left: 8%;
-		background-color: rgba(0,0,0,0.4);
+		left: 0;
+		background-color: #fff;
 		color: #fff;
 		padding-top: 5px;
 		padding-bottom: 5px;
+		a{
+			width: 49%;
+			text-align: center;
+			display: inline-block;
+			&:first-of-type{
+				border-right : 1px solid $brand-second;
+			}
+		}
 	}
+
+	/* a{
+		position: relative;
+	} */
+}
+
+div.siderBarRight{
+	width : 350px;
+}
+
+div.flex-1{
+	flex:1;
 }

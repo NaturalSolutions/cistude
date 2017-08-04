@@ -41,6 +41,10 @@ function custom_post_type() {
     'menu_name'           => __( 'Taxon', 'twentythirteen' ),
     'parent_item_colon'   => __( 'Parent Taxon', 'twentythirteen' ),
     'all_items'           => __( 'Liste des taxons', 'twentythirteen' ),
+    /*
+    'category'           => __( 'Catégori', 'twentythirteen' ),
+    'post_tag'           => __( 'Catégori', 'twentythirteen' ),
+    */
     'view_item'           => __( 'Voir un taxon', 'twentythirteen' ),
     'add_new_item'        => __( 'Ajouter un taxon', 'twentythirteen' ),
     'add_new'             => __( 'Ajouter un taxon', 'twentythirteen' ),
@@ -51,8 +55,7 @@ function custom_post_type() {
     'not_found_in_trash'  => __( 'Pas trouvé dans la corbeille', 'twentythirteen' ),
   );
 
-// Set other options for Custom Post Type
-
+  // Set other options for Custom Post Type
   $args = array(
     'label'               => __( 'Taxon', 'twentythirteen' ),
     'description'         => __( 'Taxon news and reviews', 'twentythirteen' ),
@@ -60,7 +63,13 @@ function custom_post_type() {
     // Features this CPT supports in Post Editor
     'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
     // You can associate this CPT with a taxonomy or custom taxonomy.
+
+    /* Dosen't work :
     'taxonomies'          => array( 'famille' ),
+    'category'          => array( 'famille' ),
+    'post_tag'          => array( 'famille' ),
+    */
+
     /* A hierarchical CPT is like Pages and can have
     * Parent and child items. A non-hierarchical CPT
     * is like Posts.
@@ -90,3 +99,44 @@ function custom_post_type() {
 */
 
 add_action( 'init', 'custom_post_type', 0 );
+
+
+//hook into the init action and call create_topics_nonhierarchical_taxonomy when it fires
+
+add_action( 'init', 'create_topics_nonhierarchical_taxonomy', 0 );
+
+function create_topics_nonhierarchical_taxonomy() {
+
+// Labels part for the GUI
+
+  $labels = array(
+    'name' => _x( 'saison', 'Nom de la taxonomie' ),
+    'singular_name' => _x( 'une saison', 'Nom d\'un élément de la taxonomie'),
+    'search_items' =>  __( 'Recherche une saison' ),
+    'popular_items' => __( 'Saisons populaire' ),
+    'all_items' => __( 'Toutes les saisons' ),
+    'parent_item' => null,
+    'parent_item_colon' => null,
+    'edit_item' => __( 'Éditer une saison' ),
+    'update_item' => __( 'Mettre à jour une saison' ),
+    'add_new_item' => __( 'Ajouter une nouvelle saison' ),
+    'new_item_name' => __( 'Nom de la nouvelle saison' ),
+    'separate_items_with_commas' => __( 'Séparer les saisons avec une virgule' ),
+    'add_or_remove_items' => __( 'Ajouter ou supprimer une saison' ),
+    'choose_from_most_used' => __( 'Séléctionner depuis les saisons les plus utilisés' ),
+    'menu_name' => __( 'Saisons' ),
+  );
+
+// Now register the non-hierarchical taxonomy like tag
+
+  register_taxonomy('Saisons','taxon',array(
+    'hierarchical' => false,
+    'labels' => $labels,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'update_count_callback' => '_update_post_term_count',
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'Saisons' ),
+  ));
+}
+

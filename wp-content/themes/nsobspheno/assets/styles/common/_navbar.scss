@@ -9,26 +9,24 @@ div.main-menu{
   }
 }
 
-
 a.btnToggleMenu{
   background-color : $brand-primary;
   width: 50px;
-  display: inline-block;
   text-align: center;
   padding: 10px 0;
-  position: relative;
-  left: -15px;
-  top: -25px;
+  position: absolute;
+  left: 0;
   color: #fff;
+  top: -25px;
+  z-index: 9999;
 }
+
 
 #sidebar{
   background-color : $brand-primary;
   padding: 0;
   top: -25px;
-  &.show{
-
-  }
+  position:relative;
 }
 
 #sidebar .list-group-item {
@@ -107,12 +105,12 @@ a.btnToggleMenu{
 
 /* change transition animation to width when entire sidebar is toggled */
 #sidebar.collapse {
-  -webkit-transition-timing-function: ease;
+/*   -webkit-transition-timing-function: ease;
        -o-transition-timing-function: ease;
           transition-timing-function: ease;
   -webkit-transition-duration: .1s;
        -o-transition-duration: .1s;
-          transition-duration: .1s;
+          transition-duration: .1s; */
 }
 
 #sidebar.collapsing {
@@ -120,11 +118,11 @@ a.btnToggleMenu{
   width: 0;
   background: 0;
   height: 0;
-  -webkit-transition-timing-function: ease-in;
+ /*  -webkit-transition-timing-function: ease-in;
        -o-transition-timing-function: ease-in;
           transition-timing-function: ease-in;
   -webkit-transition-property: width;
        -o-transition-property: width;
-          transition-property: width;
+          transition-property: width; */
 
 }

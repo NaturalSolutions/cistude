@@ -23,7 +23,10 @@ use Roots\Sage\Wrapper;
 
         <!-- menu inspiration : https://www.codeply.com/go/GQ1Mz8RqZB -->
         <!-- <div class="col-md-3 col-xs-1 p-l-0 p-r-0 collapse in show" id="sidebar" aria-expanded="true"> -->
-        <div class="col-md-3 col-xs-1 p-l-0 p-r-0 collapse in show" id="sidebar" aria-expanded="true">
+
+        <div class="p-l-0 p-r-0 collapse in show" id="sidebar" aria-expanded="true">
+
+
             <div class="list-group panel fullHeight">
 
                 <?php
@@ -97,8 +100,9 @@ use Roots\Sage\Wrapper;
             <p class="lead">A responsive, multi-level vertical accordion.</p>
         </main> -->
 
-        <main class="col-md-9 col-xs-11 p-l-2 p-t-2" id="main-container">
-          <a href="#sidebar" data-toggle="collapse" class='btnToggleMenu'><i class="fa fa-navicon fa-lg"></i></a>
+        <!-- <main class="col-md-9 col-xs-11 p-l-2 p-t-2" id="main-container"> -->
+        <main class="p-l-2 p-t-2" id="main-container">
+        <a href="#sidebar" data-toggle="collapse" class='btnToggleMenu'><i class="fa fa-navicon fa-lg"></i></a>
           <?php include Wrapper\template_path(); ?>
         </main><!-- /.main -->
         <?php if (Setup\display_sidebar()) : ?>
