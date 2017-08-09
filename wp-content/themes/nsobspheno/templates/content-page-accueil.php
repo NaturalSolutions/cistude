@@ -32,7 +32,7 @@
 				$thumb_post =  get_the_post_thumbnail( $post_id, 'medium', array( 'class' => '' ) );
 
 				//Returns All Term Items for "Saisons" taxo
-				$term_list = wp_get_post_terms($post_id, 'Saisons', array("fields" => "all", "order" => "DESC"));
+				$term_list = wp_get_post_terms($post_id, 'saisons', array("fields" => "all", "order" => "DESC"));
 
 				// reset string var
 				$termOfSpecie = "";
