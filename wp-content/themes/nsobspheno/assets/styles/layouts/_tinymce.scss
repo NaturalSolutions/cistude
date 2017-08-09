@@ -1,3 +1,5 @@
 body#tinymce {
   margin: 12px !important;
 }
+// to fix bug with text editor in Back-office
+#tinymce { height: auto; }

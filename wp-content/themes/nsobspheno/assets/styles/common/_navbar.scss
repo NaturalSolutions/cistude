@@ -17,15 +17,13 @@ a.btnToggleMenu{
   position: absolute;
   left: 0;
   color: #fff;
-  top: -25px;
-  z-index: 9999;
+  z-index: 9;
 }
 
 
 #sidebar{
   background-color : $brand-primary;
   padding: 0;
-  top: -25px;
   position:relative;
 }
 
@@ -125,4 +123,8 @@ a.btnToggleMenu{
        -o-transition-property: width;
           transition-property: width; */
 
+}
+
+@media (max-width:968px) {
+#sidebar{width:100%;}
 }

@@ -1,41 +1,46 @@
 @import "navbar";
 
 
-// Common
-/* html, body{
-	height: 100%;
-} */
-
-
-// Divers
+/*
+*
+*  Divers
+*
+*/
 .fullHeight{
 	height::100%;
 }
 .flexWrapper{
 	display:flex;
 }
+div.flex-1{
+	flex:1;
+}
 
+
+
+
+
+/*
+*
+*  Container properties
+*
+*/
 div.wrap > div.content{
 	display: flex;
 }
-
-
-// to fix bug with text editor in Back-office
-#tinymce { height: auto;}
-
-
-body > div.wrap{
-	padding-top: 100px;
-}
-
 main#main-container{
 	flex: 1;
 	position:relative;
-	/* padding-top: 19px; */
 }
-
+div.contentWrapper{
+	padding: 0 1%;
+}
+div.siderBarRight{
+	width : 350px;
+}
+// sub Header
 div.page-header{
-	margin-top: 19px;
+	margin-top: 44px;
 	h2{
 
 		font-size : 1.5em;
@@ -51,11 +56,18 @@ div.page-header{
 	}
 }
 
-div.contentWrapper{
-	padding: 0 1%;
-}
 
-// Font page
+
+
+
+
+
+
+/*
+*
+*  Font page
+*
+*/
 div.oneSpecie{
 	position: relative;
 	text-align: center;
@@ -102,16 +114,4 @@ div.oneSpecie{
 			}
 		}
 	}
-
-	/* a{
-		position: relative;
-	} */
-}
-
-div.siderBarRight{
-	width : 350px;
-}
-
-div.flex-1{
-	flex:1;
 }

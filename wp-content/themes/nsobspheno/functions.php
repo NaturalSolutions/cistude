@@ -41,9 +41,11 @@ function custom_post_type() {
     'menu_name'           => __( 'Taxon', 'twentythirteen' ),
     'parent_item_colon'   => __( 'Parent Taxon', 'twentythirteen' ),
     'all_items'           => __( 'Liste des taxons', 'twentythirteen' ),
+    //'category'           => __( 'Saisons', 'twentythirteen' ),
     /*
-    'category'           => __( 'Catégori', 'twentythirteen' ),
-    'post_tag'           => __( 'Catégori', 'twentythirteen' ),
+    'taxonomies' => array( 'Saisons', 'post_tag' ),
+    'taxonomies' => array( 'category', 'post_tag' ),
+    'post_tag'           => __( 'Saisons', 'twentythirteen' ),
     */
     'view_item'           => __( 'Voir un taxon', 'twentythirteen' ),
     'add_new_item'        => __( 'Ajouter un taxon', 'twentythirteen' ),
@@ -63,11 +65,12 @@ function custom_post_type() {
     // Features this CPT supports in Post Editor
     'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
     // You can associate this CPT with a taxonomy or custom taxonomy.
+    'taxonomies'          => array( 'Saisons' ),
 
     /* Dosen't work :
-    'taxonomies'          => array( 'famille' ),
-    'category'          => array( 'famille' ),
-    'post_tag'          => array( 'famille' ),
+    'taxonomies'          => array( 'Saisons' ),
+    'category'          => array( 'Saisons' ),
+    'post_tag'          => array( 'Saisons' ),
     */
 
     /* A hierarchical CPT is like Pages and can have
@@ -103,6 +106,7 @@ add_action( 'init', 'custom_post_type', 0 );
 
 //hook into the init action and call create_topics_nonhierarchical_taxonomy when it fires
 
+/*
 add_action( 'init', 'create_topics_nonhierarchical_taxonomy', 0 );
 
 function create_topics_nonhierarchical_taxonomy() {
@@ -110,10 +114,10 @@ function create_topics_nonhierarchical_taxonomy() {
 // Labels part for the GUI
 
   $labels = array(
-    'name' => _x( 'saison', 'Nom de la taxonomie' ),
+    'name' => _x( 'Saison', 'Nom de la taxonomie' ),
     'singular_name' => _x( 'une saison', 'Nom d\'un élément de la taxonomie'),
     'search_items' =>  __( 'Recherche une saison' ),
-    'popular_items' => __( 'Saisons populaire' ),
+    'popular_items' => __( 'Saisons populaires' ),
     'all_items' => __( 'Toutes les saisons' ),
     'parent_item' => null,
     'parent_item_colon' => null,
@@ -139,4 +143,41 @@ function create_topics_nonhierarchical_taxonomy() {
     'rewrite' => array( 'slug' => 'Saisons' ),
   ));
 }
+*/
 
+//hook into the init action and call create_book_taxonomies when it fires
+add_action( 'init', 'create_topics_hierarchical_taxonomy', 0 );
+
+//create a custom taxonomy name it topics for your posts
+
+function create_topics_hierarchical_taxonomy() {
+
+// Add new taxonomy, make it hierarchical like categories
+//first do the translations part for GUI
+
+  $labels = array(
+    'name' => _x( 'Saisons', 'Nom de de la taxonomie' ),
+    'singular_name' => _x( 'Saison', 'Nom d\'un élément de la taxonomie' ),
+    'search_items' =>  __( 'Rechercher une saison' ),
+    'all_items' => __( 'Toutes les saisons' ),
+    'parent_item' => __( 'Élement parent' ),
+    'parent_item_colon' => __( 'Élement parent:' ),
+    'edit_item' => __( 'Éditer une saison' ),
+    'update_item' => __( 'Mettre à jour une saison' ),
+    'add_new_item' => __( 'Ajouter une saison' ),
+    'new_item_name' => __( 'Nom de la nouvelle saison' ),
+    'menu_name' => __( 'Saisons' ),
+  );
+
+// Now register the taxonomy
+
+  register_taxonomy('saisons',array('taxon'), array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'saisons' ),
+  ));
+
+}

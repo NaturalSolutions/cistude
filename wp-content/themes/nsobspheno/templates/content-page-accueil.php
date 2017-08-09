@@ -31,9 +31,24 @@
 				$link_post = get_post_permalink($post_id);
 				$thumb_post =  get_the_post_thumbnail( $post_id, 'medium', array( 'class' => '' ) );
 
+				//Returns All Term Items for "Saisons" taxo
+				$term_list = wp_get_post_terms($post_id, 'Saisons', array("fields" => "all", "order" => "DESC"));
+
+				// reset string var
+				$termOfSpecie = "";
+
+				// add all term name in string var
+				foreach ($term_list as $key => $term) {
+
+					$termOfSpecie .= $term->name." ";
+					//echo $term->name;
+
+				}
+
+				//print_r($term_list);
 
 
-				echo "<div class='oneSpecie'>
+				echo "<div class='oneSpecie' data-saison='$termOfSpecie'>
 
 						<a href='$link_post' title='$title_post' alt='$title_post'>
 							$thumb_post
@@ -65,7 +80,7 @@
 	</div>
 
 	<div class="siderBarRight actu">
-		<h2>Actualité</h2>
+		<h2>Actualités</h2>
 	</div>
 
 </div>
