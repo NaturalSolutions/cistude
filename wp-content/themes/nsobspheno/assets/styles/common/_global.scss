@@ -20,6 +20,7 @@ div.flex-1{
 
 
 
+
 /*
 *
 *  Container properties
@@ -68,6 +69,10 @@ div.page-header{
 *  Font page
 *
 */
+.swiper-container {
+    width: 100%;
+    height: 300px;
+}
 div.oneSpecie{
 	position: relative;
 	text-align: center;

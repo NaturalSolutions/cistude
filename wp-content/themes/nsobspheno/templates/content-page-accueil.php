@@ -15,63 +15,105 @@
 		*  Display custom content type (inspiration : http://www.wpbeginner.com/wp-tutorials/how-to-create-custom-post-types-in-wordpress/)
 		*/
 
+
+		// Get current month
+
 		// Set query
-		$args = array( 'post_type' => 'taxon', 'posts_per_page' => -1 );
-		$the_query = new WP_Query( $args );
+		$the_query = new WP_Query( array(
+		    'post_type' => 'taxon',
+		    'posts_per_page' => -1,
+		    'tax_query' => array(
+		        array (
+		            'taxonomy' => 'saisons',
+		            'field' => 'slug',
+		            'terms' => 'janvier',
+		            //'field' => 'term_id',
+		            //'terms' => 26,
+		        )
+		    ),
+		) );
+
+		/*$args = array( 'post_type' => 'taxon', 'posts_per_page' => -1 );
+		$the_query = new WP_Query( $args );*/
+
 
 	?>
 
 
 		<?php if ( $the_query->have_posts() ) : ?>
-			<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-				<?php
+			<!-- Slider main container -->
+			<div class="swiper-container">
 
-				$post_id = get_the_ID();
-				$title_post = get_the_title($post_id);
-				$link_post = get_post_permalink($post_id);
-				$thumb_post =  get_the_post_thumbnail( $post_id, 'medium', array( 'class' => '' ) );
-
-				//Returns All Term Items for "Saisons" taxo
-				$term_list = wp_get_post_terms($post_id, 'saisons', array("fields" => "all", "order" => "DESC"));
-
-				// reset string var
-				$termOfSpecie = "";
-
-				// add all term name in string var
-				foreach ($term_list as $key => $term) {
-
-					$termOfSpecie .= $term->name." ";
-					//echo $term->name;
-
-				}
-
-				//print_r($term_list);
+				<!-- Additional required wrapper -->
+				<div class="swiper-wrapper">
 
 
-				echo "<div class='oneSpecie' data-saison='$termOfSpecie'>
+					<div class="swiper-slide">
+						<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
-						<a href='$link_post' title='$title_post' alt='$title_post'>
-							$thumb_post
-							<span class='labelShowOnHover'>Saisir des données</span>
-						</a>
-						<div class='bot'>
+								<?php
 
-							<a href='$link_post'>
-								<span>Fiche</span>
-							</a>
+								$post_id = get_the_ID();
+								$title_post = get_the_title($post_id);
+								$link_post = get_post_permalink($post_id);
+								$thumb_post =  get_the_post_thumbnail( $post_id, 'medium', array( 'class' => '' ) );
 
-							<a href='#'>
-								<span>Résultats</span>
-							</a>
+								//Returns All Term Items for "Saisons" taxo
+								$term_list = wp_get_post_terms($post_id, 'saisons', array("fields" => "all", "order" => "DESC"));
 
-						</div>
+								// reset string var
+								$termOfSpecie = "";
 
-					</div>";
+								// add all term name in string var
+								foreach ($term_list as $key => $term) {
 
-				?>
+									$termOfSpecie .= $term->slug." ";
+									//echo $term->name;
+
+								}
+
+								//print_r($term_list);
 
 
-			<?php endwhile; ?>
+								echo "<div class='oneSpecie' data-saison='$termOfSpecie'>
+
+										<a href='$link_post' title='$title_post' alt='$title_post'>
+											$thumb_post
+											<span class='labelShowOnHover'>Saisir des données</span>
+										</a>
+										<div class='bot'>
+
+											<a href='$link_post'>
+												<span>Fiche</span>
+											</a>
+
+											<a href='#'>
+												<span>Résultats</span>
+											</a>
+
+										</div>
+
+									</div>";
+
+								?>
+
+
+						<?php endwhile;
+					echo "</div> <!-- end of swiper-slide -->";
+					/* Restore original Post Data
+					 * NB: Because we are using new WP_Query we aren't stomping on the
+					 * original $wp_query and it does not need to be reset.
+					*/
+					wp_reset_postdata();
+					?>
+
+				</div> <!-- end of swiper-wrapper -->
+
+			</div> <!-- end of swiper-container -->
+
+			<!-- If we need navigation buttons -->
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
 
 		<?php endif; ?>
 

@@ -28,6 +28,22 @@
     'home': {
       init: function() {
         // JavaScript to be fired on the home page
+
+          //initialize swiper
+          var mySwiper = new Swiper ('.swiper-container', {
+
+            // Navigation arrows
+             nextButton: '.swiper-button-next',
+             prevButton: '.swiper-button-prev',
+
+             //slidesPerView : 'auto'
+
+            // Optional parameters
+            //direction: 'vertical',
+            //loop: true
+          });
+
+
       },
       finalize: function() {
         // JavaScript to be fired on the home page, after the init JS
