@@ -32,7 +32,7 @@ unset($file, $filepath);
 * Creating a function to create our Custom content type (inspiration : http://www.wpbeginner.com/wp-tutorials/how-to-create-custom-post-types-in-wordpress/)
 */
 
-function custom_post_type() {
+function custom_post_type_taxon() {
 
 // Set UI labels for Custom Post Type
   $labels = array(
@@ -101,55 +101,84 @@ function custom_post_type() {
 * unnecessarily executed.
 */
 
-add_action( 'init', 'custom_post_type', 0 );
+add_action( 'init', 'custom_post_type_taxon', 0 );
 
+function custom_post_type_observations() {
 
-//hook into the init action and call create_topics_nonhierarchical_taxonomy when it fires
-
-/*
-add_action( 'init', 'create_topics_nonhierarchical_taxonomy', 0 );
-
-function create_topics_nonhierarchical_taxonomy() {
-
-// Labels part for the GUI
-
+// Set UI labels for Custom Post Type
   $labels = array(
-    'name' => _x( 'Saison', 'Nom de la taxonomie' ),
-    'singular_name' => _x( 'une saison', 'Nom d\'un élément de la taxonomie'),
-    'search_items' =>  __( 'Recherche une saison' ),
-    'popular_items' => __( 'Saisons populaires' ),
-    'all_items' => __( 'Toutes les saisons' ),
-    'parent_item' => null,
-    'parent_item_colon' => null,
-    'edit_item' => __( 'Éditer une saison' ),
-    'update_item' => __( 'Mettre à jour une saison' ),
-    'add_new_item' => __( 'Ajouter une nouvelle saison' ),
-    'new_item_name' => __( 'Nom de la nouvelle saison' ),
-    'separate_items_with_commas' => __( 'Séparer les saisons avec une virgule' ),
-    'add_or_remove_items' => __( 'Ajouter ou supprimer une saison' ),
-    'choose_from_most_used' => __( 'Séléctionner depuis les saisons les plus utilisés' ),
-    'menu_name' => __( 'Saisons' ),
+    'name'                => _x( 'Observations', 'Post Type General Name', 'twentythirteen' ),
+    'singular_name'       => _x( 'Observations', 'Post Type Singular Name', 'twentythirteen' ),
+    'menu_name'           => __( 'Observations', 'twentythirteen' ),
+    'parent_item_colon'   => __( 'Parent Observations', 'twentythirteen' ),
+    'all_items'           => __( 'Liste des observations', 'twentythirteen' ),
+    //'category'           => __( 'Saisons', 'twentythirteen' ),
+    /*
+    'taxonomies' => array( 'Saisons', 'post_tag' ),
+    'taxonomies' => array( 'category', 'post_tag' ),
+    'post_tag'           => __( 'Saisons', 'twentythirteen' ),
+    */
+    'view_item'           => __( 'Voir une observations', 'twentythirteen' ),
+    'add_new_item'        => __( 'Ajouter une observations', 'twentythirteen' ),
+    'add_new'             => __( 'Ajouter une observations', 'twentythirteen' ),
+    'edit_item'           => __( 'Éditer une observations', 'twentythirteen' ),
+    'update_item'         => __( 'Mettre à jour une observations', 'twentythirteen' ),
+    'search_items'        => __( 'Rechercher une observations', 'twentythirteen' ),
+    'not_found'           => __( 'Pas trouvé', 'twentythirteen' ),
+    'not_found_in_trash'  => __( 'Pas trouvé dans la corbeille', 'twentythirteen' ),
   );
 
-// Now register the non-hierarchical taxonomy like tag
+  // Set other options for Custom Post Type
+  $args = array(
+    'label'               => __( 'Observations', 'twentythirteen' ),
+    'description'         => __( 'Observations news and reviews', 'twentythirteen' ),
+    'labels'              => $labels,
+    // Features this CPT supports in Post Editor
+    'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+    // You can associate this CPT with a taxonomy or custom taxonomy.
+    /*'taxonomies'          => array( 'Saisons' ),*/
 
-  register_taxonomy('Saisons','taxon',array(
-    'hierarchical' => false,
-    'labels' => $labels,
-    'show_ui' => true,
-    'show_admin_column' => true,
-    'update_count_callback' => '_update_post_term_count',
-    'query_var' => true,
-    'rewrite' => array( 'slug' => 'Saisons' ),
-  ));
+    /* Dosen't work :
+    'taxonomies'          => array( 'Saisons' ),
+    'category'          => array( 'Saisons' ),
+    'post_tag'          => array( 'Saisons' ),
+    */
+
+    /* A hierarchical CPT is like Pages and can have
+    * Parent and child items. A non-hierarchical CPT
+    * is like Posts.
+    */
+    'hierarchical'        => false,
+    'public'              => true,
+    'show_ui'             => true,
+    'show_in_menu'        => true,
+    'show_in_nav_menus'   => true,
+    'show_in_admin_bar'   => true,
+    'menu_position'       => 5,
+    'can_export'          => true,
+    'has_archive'         => true,
+    'exclude_from_search' => false,
+    'publicly_queryable'  => true,
+    'capability_type'     => 'page',
+  );
+
+  // Registering your Custom Post Type
+  register_post_type( 'Observations', $args );
+
 }
+
+/* Hook into the 'init' action so that the function
+* Containing our post type registration is not
+* unnecessarily executed.
 */
+
+add_action( 'init', 'custom_post_type_observations', 0 );
+
 
 //hook into the init action and call create_book_taxonomies when it fires
 add_action( 'init', 'create_topics_hierarchical_taxonomy', 0 );
 
 //create a custom taxonomy name it topics for your posts
-
 function create_topics_hierarchical_taxonomy() {
 
 // Add new taxonomy, make it hierarchical like categories

@@ -25,6 +25,7 @@ a.btnToggleMenu{
   background-color : $brand-primary;
   padding: 0;
   position:relative;
+  /* width: 100%; */
 }
 
 #sidebar .list-group-item {
@@ -126,5 +127,7 @@ a.btnToggleMenu{
 }
 
 @media (max-width:968px) {
-#sidebar{width:100%;}
+  #sidebar{
+    width:100%;
+  }
 }

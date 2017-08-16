@@ -2,7 +2,7 @@
 
 <div class="flexWrapper contentWrapper">
 
-	<div class="flex-1">
+	<div class="flex-1 relative">
 
 	<?php
 		// displaying content written in the BO for the front page
@@ -164,16 +164,16 @@
 					$thumb_post =  get_the_post_thumbnail( $post_id, 'medium', array( 'class' => '' ) );
 
 					$excerpt = get_the_excerpt();
-					$excerpt_post_truncate = excerpt_truncate($excerpt, 20);
+					$excerpt_post_truncate = excerpt_truncate($excerpt, 15);
 
 
 
 
 					echo "
-					<a href='$link_post' class='oneArticle' title='$title_post' alt=''>
+					<a href='$link_post' class='oneArticle flexWrapper' title='$title_post' alt=''>
 
-						<div class='left'>$thumb_post</div>
-						<div class='right'>
+						<div class='left flex-1'>$thumb_post</div>
+						<div class='right flex-2'>
 							<span class='date_post'>$date_post</span>
 							<span class='title_post'>$title_post</span>
 							<span class='excerpt_post'>$excerpt_post_truncate</span>

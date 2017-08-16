@@ -12,8 +12,14 @@
 .flexWrapper{
 	display:flex;
 }
-div.flex-1{
+.relative{
+	position:relative;
+}
+.flex-1{
 	flex:1;
+}
+.flex-2{
+	flex:2;
 }
 
 
@@ -36,9 +42,7 @@ main#main-container{
 div.contentWrapper{
 	padding: 0 1%;
 }
-div.siderBarRight{
-	width : 350px;
-}
+
 // sub Header
 div.page-header{
 	margin-top: 44px;
@@ -72,7 +76,7 @@ div.page-header{
 body.home{
 	.swiper-container {
 		width: 100%;
-		height: 300px;
+		/* height: 300px; */
 	}
 	div.oneSpecie{
 		position: relative;
@@ -122,17 +126,59 @@ body.home{
 		}
 	}
 
-	// Sidebar Actu
-	div.siderBarRight.actu{
-		div.oneArticle{
 
-		}
-	}
+
 }
 
 
 
+// Sidebar Actu
+div.siderBarRight.actu{
+	width : 350px;
+	h2{
+		text-align:center;
+		color: #fff;
+		background-color: $brand-second;
+		font-size: 1.2em;
+		margin: 0;
+		padding: 10px 1%;
+		font-weight: normal;
+	}
+	a.oneArticle{
+		&:hover, &.focus, &.active{
+			text-decoration: none;
+		}
+		border: 1px solid $brand-primary;
+		div.left{
+			display: inline-block;
 
+			img{
+				width: 100%;
+				height: 100px;
+				object-fit: contain;
+			}
+		}
+		div.right{
+			display: inline-block;
+			/* padding: 0 0 0 10px; */
+			span.date_post{
+				width: 100%;
+				display: block;
+				font-style: italic;
+				font-size: 0.7em;
+			}
+			span.title_post{
+				width: 100%;
+				display: block;
+			}
+			span.excerpt_post{
+				width: 100%;
+				display: block;
+				font-size: 0.8em;
+			}
+		}
+	}
+}
 
 
 
