@@ -12,12 +12,11 @@ Un projet de sciences participatives autour du climat
 
 
 ## Documentation  
-Theme utilisé : "www/wp-content/themes/nsobspheno" à partir d'un theme blanc pour wordpress 
-* [Doc](https://roots.io/sage/docs/theme-development-and-building/)  
-* [Templating](https://roots.io/sage/docs/theme-templates/)  
-* Les templates sont situés ici "www/wp-content/themes/nsobspheno" et là "www/wp-content/themes/nsobspheno/templates"  
+* Theme utilisé "www/wp-content/themes/nsobspheno" à partir d'un theme blanc pour wordpress [Sage](https://roots.io/sage/)  
+* [Documentation dev](https://roots.io/sage/docs/theme-development-and-building/)  
+* [Documentation templating](https://roots.io/sage/docs/theme-templates/). Ils sont situés ici "www/wp-content/themes/nsobspheno" et là "www/wp-content/themes/nsobspheno/templates"  
 * Le fichier "www/wp-content/themes/nsobspheno/functions.php" contient le code php personalisé  
-* Les plugins sont ici : "www/wp-content/plugins"
+* Les plugins sont ici : "www/wp-content/plugins"  
 * Les assets (js, fonts, css..) sont ici "www/wp-content/themes/nsobspheno/assets"  
 
 
