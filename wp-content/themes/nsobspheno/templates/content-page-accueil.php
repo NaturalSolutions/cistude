@@ -80,10 +80,10 @@
 
 								echo "<div class='oneSpecie' data-saison='$termOfSpecie'>
 
-										<a href='$link_post' title='$title_post' alt='$title_post'>
+										<div title='$title_post' alt='$title_post'>
 											$thumb_post
-											<span class='labelShowOnHover'>Saisir des données</span>
-										</a>
+											<a href='formulaire-de-saisie/' class='labelShowOnHover'>Saisir des données</a>
+										</div>
 										<div class='bot'>
 
 											<a href='$link_post'>

@@ -84,12 +84,12 @@ body.home{
 		margin-bottom: 13px;
 		display:inline-block;
 		border: 1px solid $brand-second;
-		span.labelShowOnHover{
+		a.labelShowOnHover{
 			display: none;
 		}
 
 		&:hover{
-			span.labelShowOnHover{
+			a.labelShowOnHover{
 				position: absolute;
 				left: 0;
 				top: 0;
@@ -134,7 +134,7 @@ body.home{
 
 // Sidebar Actu
 div.siderBarRight.actu{
-	width : 350px;
+	max-width : 350px;
 	h2{
 		text-align:center;
 		color: #fff;
@@ -145,22 +145,23 @@ div.siderBarRight.actu{
 		font-weight: normal;
 	}
 	a.oneArticle{
-		&:hover, &.focus, &.active{
+		border: 1px solid $brand-primary;
+		border-top: 0;
+		&:hover, &:focus, &:active{
 			text-decoration: none;
 		}
-		border: 1px solid $brand-primary;
 		div.left{
 			display: inline-block;
 
 			img{
 				width: 100%;
 				height: 100px;
-				object-fit: contain;
+				object-fit: cover;
 			}
 		}
 		div.right{
 			display: inline-block;
-			/* padding: 0 0 0 10px; */
+			padding: 0 1%;
 			span.date_post{
 				width: 100%;
 				display: block;
@@ -180,6 +181,16 @@ div.siderBarRight.actu{
 	}
 }
 
+@media (max-width:1200px) {
+	div.contentWrapper {
+		display: block;
+		div.siderBarRight.actu{
+			width: 100%;
+			max-width: 100%;
+		}
+	}
+}
+
 
 
 /*
@@ -190,3 +201,4 @@ div.siderBarRight.actu{
 main#main-container article{
 	padding: 45px 1% 0;
 }
+
