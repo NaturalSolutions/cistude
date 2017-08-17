@@ -25,7 +25,10 @@ Un projet de sciences participatives autour du climat
 * [Swiper](http://idangero.us/swiper/#.WZVgS1GrRaQ)  
 
 ### Usage  
-Dans "www/wp-content/themes/nsobspheno" Faire : "gulp watch" 
+* Dans "www/wp-content/themes/nsobspheno" Faire : "gulp watch"  
+* Les exports de données en csv se font à l'aide du plugin "WP All Export" (/wp-admin/admin.php?page=pmxe-admin-manage)  
+* La création de champs personnalisé se réalise à l'aide du plugin "Advanced Custom Fields" (/wp-admin/edit.php?post_type=acf)  
+* Les types de contenus et les catégories personalisées sont créer à partir du fichier function.php  
 
 ### Tips
 Si erreur de port avec gulp, faire :  
